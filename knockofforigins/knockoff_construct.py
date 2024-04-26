@@ -1,7 +1,7 @@
 import numpy as np
 from numpy import ndarray
-from KnockOffOrigins.decompose import CholeskyDecomposition, Decompose
-from KnockOffOrigins.gram_matrix import (
+from knockofforigins.decompose import CholeskyDecomposition, Decompose
+from knockofforigins.gram_matrix import (
     compute_gram_matrix,
     generate_gram_matrix,
     normalize_features,

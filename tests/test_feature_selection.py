@@ -3,12 +3,12 @@
 import numpy as np
 import pytest
 from sklearn.exceptions import ConvergenceWarning
-from KnockOffOrigins.lasso import (
+from knockofforigins.lasso import (
     prepare_augmented_design_matrix,
     fit_lasso,
     compute_feature_importance,
 )
-from KnockOffOrigins.data_gen import (
+from knockofforigins.data_gen import (
     InfluentialFeatureGWASDataGenerator,
     SyntheticDataGenerator,
 )
