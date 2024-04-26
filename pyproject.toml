@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "fdr-control-via-knockoff"
+version = "0.1.0"
+description = "This repository is dedicated to implementing the methodologies from the 2015 paper \"False Discovery Rate via Knockoffs\". It provides code for generating knockoff features and applying selection procedures. The aim is to help users understand and apply the knockoff method for feature selection. Please refer to the original paper for a complete understanding."
+authors = ["Javad Razi <j.razi@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9.*"
+scipy = "^1.13.0"
+statsmodels = "^0.14.2"
+pandas = "^2.2.2"
+matplotlib = "^3.8.4"
+seaborn = "^0.13.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+pep8 = "^1.7.1"
+black = "^24.4.2"
+isort = "^5.13.2"
+pylint = "^3.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
