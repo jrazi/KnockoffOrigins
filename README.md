@@ -70,16 +70,58 @@ poetry install
 
 ## Usage
 
-Here is a quick example of how to generate data and apply the knockoff filter:
+### Generating Knockoff Features
+
+To generate knockoff features based on your original data, you can use the `generate_knockoff_features` function from the `knockofforigins.knockoff_construct` module.
 
 ```python
-from KnockOffOrigins.data_gen import SyntheticDataGenerator, GWASDataGenerator
+import numpy as np
+from knockofforigins.knockoff_construct import generate_knockoff_features, choose_s_vector
 
-# Initialize the data generator
-base_generator = SyntheticDataGenerator(n=10000, p=100, noise_variance=1.0)
+# Load your original feature matrix X (n x p)
+# ...
 
-# Generate data and apply the knockoff filter
-X, y = base_generator.generate_data()
+# Choose the s vector for knockoff construction
+s = choose_s_vector(np.cov(X.T))
+
+# Generate knockoff features
+X_knockoff = generate_knockoff_features(X, s)
+```
+
+### Feature Selection with Lasso
+
+After generating knockoff features, you can perform feature selection using the Lasso regression model with the augmented design matrix (original and knockoff features concatenated).
+
+```python
+from knockofforigins.lasso import compute_feature_importance
+
+# Load your response vector y (n x 1)
+# ...
+
+# Compute feature importance statistic W
+alpha = 0.1  # Regularization parameter for Lasso
+W = compute_feature_importance(X, X_knockoff, y, alpha)
+
+# Select features based on W
+selected_features = np.argsort(-W)[:num_features_to_select]
+```
+
+### Generating Synthetic GWAS Data
+
+If you need to generate synthetic GWAS data for testing purposes, you can use the InfluentialFeatureGWASDataGenerator class.
+
+```python
+from KnockoffOrigins.knockoff_construct import generate_knockoff_features, choose_s_vector
+from KnockoffOrigins.gram_matrix import generate_gram_matrix
+
+# Calculate the covariance matrix Sigma of the original features X
+Sigma = generate_gram_matrix(X)
+
+# Choose the vector 's' for knockoff feature generation
+s = choose_s_vector(Sigma)
+
+# Generate knockoff features using the original features X
+X_knockoff = generate_knockoff_features(X, s)
 ```
 
 ## Contributing
