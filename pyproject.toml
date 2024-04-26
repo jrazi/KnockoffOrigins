@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "KnockoffOrigins"
-version = "0.1.2"
+version = "v0.1.3"
 description = "This repository is dedicated to implementing the methodologies from the 2015 paper \"False Discovery Rate via Knockoffs\". It provides code for generating knockoff features and applying selection procedures. The aim is to help users understand and apply the knockoff method for feature selection. Please refer to the original paper for a complete understanding."
 authors = ["Javad Razi <j.razi@outlook.com>"]
 license = "MIT"

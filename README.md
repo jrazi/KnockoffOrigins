@@ -1,7 +1,7 @@
 # 🔍 KnockoffOrigins: An Implementation of "CONTROLLING THE FALSE DISCOVERY RATE VIA KNOCKOFFS (2015)"
 
 [![Python package](https://github.com/jrazi/KnockoffOrigins/actions/workflows/python-package.yml/badge.svg?event=registry_package)](https://github.com/jrazi/KnockoffOrigins/actions/workflows/python-package.yml)
-
+[![Publish Python Package](https://github.com/jrazi/KnockoffOrigins/actions/workflows/python-publish.yml/badge.svg?event=registry_package)](https://github.com/jrazi/KnockoffOrigins/actions/workflows/python-publish.yml)
 
 This repository hosts the implementation of the knockoff filter method for controlled variable selection, based on the "Controlling the False Discovery Rate via Knockoffs" paper from 2015. The method is designed for high-dimensional data settings to effectively control the false discovery rate while preserving statistical power.
 
@@ -17,6 +17,9 @@ This repository hosts the implementation of the knockoff filter method for contr
     - [Using Poetry](#using-poetry)
     - [From Source](#from-source)
   - [Usage](#usage)
+    - [Generating Knockoff Features](#generating-knockoff-features)
+    - [Feature Selection with Lasso](#feature-selection-with-lasso)
+    - [Generating Synthetic GWAS Data](#generating-synthetic-gwas-data)
   - [Contributing](#contributing)
   - [License](#license)
   - [TODO](#todo)
