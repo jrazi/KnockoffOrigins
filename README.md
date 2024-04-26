@@ -1,5 +1,8 @@
 # 🔍 KnockoffOrigins: An Implementation of "CONTROLLING THE FALSE DISCOVERY RATE VIA KNOCKOFFS (2015)"
 
+[![Python package](https://github.com/jrazi/KnockoffOrigins/actions/workflows/python-package.yml/badge.svg?event=registry_package)](https://github.com/jrazi/KnockoffOrigins/actions/workflows/python-package.yml)
+
+
 This repository hosts the implementation of the knockoff filter method for controlled variable selection, based on the "Controlling the False Discovery Rate via Knockoffs" paper from 2015. The method is designed for high-dimensional data settings to effectively control the false discovery rate while preserving statistical power.
 
 **Note:** Much of this implementation was crafted either from scratch or without relying on high-level libraries. This approach was chosen primarily for educational purposes (mostly _self-educational_ purposes), allowing for a deeper understanding and exploration of the underlying algorithms. While this method involves some "reinventing the wheel," it might have some educational value. Future development may include the integration of more specialized libraries to enhance functionality and performance.
