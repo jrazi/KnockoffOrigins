@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from knockoff_original.data_gen import SyntheticDataGenerator, GWASDataGenerator
+from KnockOffOrigins.data_gen import SyntheticDataGenerator, GWASDataGenerator
 
 
 class TestSyntheticDataGenerator:

@@ -1,9 +1,9 @@
 import numpy as np
 import pytest
-from knockoff_original.data_gen import SyntheticDataGenerator, GWASDataGenerator
-from knockoff_original.decompose import CholeskyDecomposition
-from knockoff_original.gram_matrix import compute_gram_matrix, normalize_features
-from knockoff_original.knockoff_construct import (
+from KnockOffOrigins.data_gen import SyntheticDataGenerator, GWASDataGenerator
+from KnockOffOrigins.decompose import CholeskyDecomposition
+from KnockOffOrigins.gram_matrix import compute_gram_matrix, normalize_features
+from KnockOffOrigins.knockoff_construct import (
     choose_s_vector,
     generate_knockoff_features,
 )

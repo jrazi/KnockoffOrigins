@@ -1,11 +1,11 @@
 import numpy as np
 import pytest
-from knockoff_original.gram_matrix import (
+from KnockOffOrigins.gram_matrix import (
     normalize_features,
     compute_gram_matrix,
     generate_gram_matrix,
 )
-from knockoff_original.data_gen import SyntheticDataGenerator, GWASDataGenerator
+from KnockOffOrigins.data_gen import SyntheticDataGenerator, GWASDataGenerator
 import numpy as np
 import pytest
 

@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 from sklearn.exceptions import ConvergenceWarning
-from knockoff_original.lasso import (
+from KnockOffOrigins.lasso import (
     prepare_augmented_design_matrix,
     fit_lasso,
     compute_feature_importance,

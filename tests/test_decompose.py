@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from knockoff_original.decompose import CholeskyDecomposition
+from KnockOffOrigins.decompose import CholeskyDecomposition
 from tests.helpers import generate_matrix
 
 
