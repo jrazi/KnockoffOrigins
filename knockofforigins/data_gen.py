@@ -38,7 +38,16 @@ class GWASDataGenerator(SyntheticDataGenerator):
         Parameters:
         - base_generator (SyntheticDataGenerator): The base data generator used for data generation.
         """
-        self.base_generator = base_generator
+
+        self._base_generator = base_generator
+
+    @property
+    def p(self):
+        return self._base_generator.p
+
+    @property
+    def n(self):
+        return self._base_generator.n
 
     def generate_data(self):
         """
@@ -48,16 +57,13 @@ class GWASDataGenerator(SyntheticDataGenerator):
         - X (ndarray): GWAS feature matrix (integers 0, 1, 2).
         - y (ndarray): Binary response vector.
         """
-        X, y_continuous = self.base_generator.generate_data()
+        X, y_continuous = self._base_generator.generate_data()
         X_gwas = np.clip(np.round(X * 2), 0, 2).astype(int)
         y_binary = (y_continuous > np.median(y_continuous)).astype(int)
         return X_gwas, y_binary
 
 
-import numpy as np
-
-
-class InfluentialFeatureGWASDataGenerator(GWASDataGenerator):
+class InfluentialFeatureGWASDataGenerator(SyntheticDataGenerator):
     def __init__(
         self, base_generator: SyntheticDataGenerator, num_influential: int = 10
     ):

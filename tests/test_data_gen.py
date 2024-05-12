@@ -44,7 +44,7 @@ class TestGWASDataGenerator:
     def test_gwas_generator_init(self, gwas_generator, base_generator):
         """Tests the initialization of GWASDataGenerator."""
         assert (
-            gwas_generator.base_generator == base_generator
+            gwas_generator._base_generator == base_generator
         ), "GWASDataGenerator not initialized correctly."
 
     def test_gwas_generate_data_shapes(self, gwas_generator):

@@ -1,10 +1,6 @@
 import numpy as np
 import pytest
-from knockofforigins.gram_matrix import (
-    normalize_features,
-    compute_gram_matrix,
-    generate_gram_matrix,
-)
+from knockofforigins.gram_matrix import normalize_features, compute_gram_matrix
 from knockofforigins.data_gen import SyntheticDataGenerator, GWASDataGenerator
 import numpy as np
 import pytest
@@ -42,16 +38,6 @@ def test_gram_matrix_diagonal_elements(synthetic_data):
     gram_matrix = compute_gram_matrix(normalized_X)
     diagonal_elements = np.diag(gram_matrix)
     # Check if diagonal elements are close to 1, as each column vector should have unit length
-    np.testing.assert_array_almost_equal(
-        diagonal_elements, np.ones(diagonal_elements.size), decimal=6
-    )
-
-
-def test_generate_gram_matrix_integration(synthetic_data):
-    gram_matrix = generate_gram_matrix(synthetic_data)
-    # Ensure matrix is symmetric and check diagonal as a basic integration test
-    assert np.allclose(gram_matrix, gram_matrix.T), "Gram matrix is not symmetric"
-    diagonal_elements = np.diag(gram_matrix)
     np.testing.assert_array_almost_equal(
         diagonal_elements, np.ones(diagonal_elements.size), decimal=6
     )

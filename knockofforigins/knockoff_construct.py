@@ -1,15 +1,14 @@
 import numpy as np
 from numpy import ndarray
-from knockofforigins.decompose import CholeskyDecomposition, Decompose
+from scipy.linalg import qr
+from knockofforigins.decompose import CholeskyDecomposition
 from knockofforigins.gram_matrix import (
     compute_gram_matrix,
-    generate_gram_matrix,
     normalize_features,
 )
-from scipy.linalg import qr
 
 
-def choose_s_vector(Sigma: ndarray, tau: float = None) -> ndarray:
+def choose_s_vector(Sigma: ndarray, tau: float = np.inf) -> ndarray:
     """
     Choose the vector s based on the constraints that diag{s} <= 2 * Sigma.
 
@@ -20,11 +19,10 @@ def choose_s_vector(Sigma: ndarray, tau: float = None) -> ndarray:
     Returns:
         A vector s that satisfies the constraints for knockoff feature generation.
     """
-    # Compute the diagonal matrix diag(s)
-    s = np.zeros(Sigma.shape[0])  # Initialize s as zeros
+    s = np.zeros(Sigma.shape[0])
 
     # Ensure diag(s) <= 2 * Sigma
-    EPSILON = 1e-6
+    EPSILON = 1e-3
     for j in range(Sigma.shape[0]):
         s_j = (
             min(2 * Sigma[j, j] - EPSILON, tau)
@@ -34,22 +32,6 @@ def choose_s_vector(Sigma: ndarray, tau: float = None) -> ndarray:
         s[j] = s_j
 
     return s
-
-
-def generate_random_matrix(shape, random_state=None):
-    """
-    Generate a random matrix with the specified shape.
-
-    Args:
-        shape: Tuple representing the desired shape of the random matrix.
-        random_state: Optional seed for the random number generator.
-
-    Returns:
-        A random matrix of the specified shape.
-    """
-    if random_state is not None:
-        np.random.seed(random_state)
-    return np.random.normal(size=shape)
 
 
 def generate_knockoff_features(
