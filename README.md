@@ -137,6 +137,7 @@ This project is licensed under the MIT License.
 
 ## TODO
 
+- [ ] Fix problems with computing S vector and generating Knockoff data.
 - [ ] Implement test statistics for feature evaluation.
 - [ ] Develop FDR control mechanisms as outlined in the original study.
 - [ ] Implement Lasso feature selection using lower-level libraries.
